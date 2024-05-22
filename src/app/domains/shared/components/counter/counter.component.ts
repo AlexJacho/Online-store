@@ -28,7 +28,7 @@ export class CounterComponent {
     console.log(changes);
 
     const duration = changes ['duration'];
-    if (duration) {
+    if (duration && duration.currentValue !== duration.previousValue) {
       this.doSomething();
     }
     
