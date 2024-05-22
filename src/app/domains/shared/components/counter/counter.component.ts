@@ -38,7 +38,15 @@ export class CounterComponent {
     console.log('message =>', this.message);
   }
 
-
-
-
+  ngAfterViewInit(){
+    //after render
+    //childs was rendered
+    console.log('ngAfterViewInit');
+    console.log('_'.repeat(10));
+  }
+  
+  ngOnDestroy(){
+    console.log('ngOnDestroy');
+    console.log('_'.repeat(10));
+  }
 }
