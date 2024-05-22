@@ -22,12 +22,15 @@ export class CounterComponent {
 
   ngOnChanges(changes:SimpleChanges){
     // before and during render
+    // more time
     console.log("ngOnChanges");
     console.log('_'.repeat(10));
     console.log(changes);
 
     const duration = changes ['duration'];
-    console.log(duration);
+    if (duration) {
+      this.doSomething();
+    }
     
     
   }
@@ -52,6 +55,11 @@ export class CounterComponent {
   ngOnDestroy(){
     console.log('ngOnDestroy');
     console.log('_'.repeat(10));
+  }
+
+  doSomething(){
+    //async
+    console.log('duration has changed')
   }
 
 
