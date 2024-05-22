@@ -1,4 +1,4 @@
-import { Component, Input, SimpleChange } from '@angular/core';
+import { Component, Input, SimpleChange, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-counter',
@@ -20,11 +20,15 @@ export class CounterComponent {
     console.log('_'.repeat(10))
   }
 
-  ngOnChanges(changes:SimpleChange){
+  ngOnChanges(changes:SimpleChanges){
     // before and during render
     console.log("ngOnChanges");
     console.log('_'.repeat(10));
     console.log(changes);
+
+    const duration = changes ['duration'];
+    console.log(duration);
+    
     
   }
 
@@ -44,9 +48,11 @@ export class CounterComponent {
     console.log('ngAfterViewInit');
     console.log('_'.repeat(10));
   }
-  
+
   ngOnDestroy(){
     console.log('ngOnDestroy');
     console.log('_'.repeat(10));
   }
+
+
 }
