@@ -1,4 +1,4 @@
-import { Component, Input, SimpleChange, SimpleChanges } from '@angular/core';
+import { Component, Input, SimpleChange, SimpleChanges, signal } from '@angular/core';
 
 @Component({
   selector: 'app-counter',
@@ -10,6 +10,8 @@ import { Component, Input, SimpleChange, SimpleChanges } from '@angular/core';
 export class CounterComponent {
   @Input({required: true}) duration = 0;
   @Input ({required: true}) message = '';
+  counter = signal (0);
+  
 
 
   constructor(){
@@ -43,6 +45,9 @@ export class CounterComponent {
     console.log('_'.repeat(10));
     console.log('duration =>', this.duration);
     console.log('message =>', this.message);
+    window.setInterval(() => {
+      this.counter.update(statePrev => statePrev + 1);
+    }, 1000)
   }
 
   ngAfterViewInit(){
