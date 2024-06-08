@@ -1,5 +1,6 @@
 import { Component, Input, SimpleChange, SimpleChanges, signal } from '@angular/core';
 
+
 @Component({
   selector: 'app-counter',
   standalone: true,
@@ -11,6 +12,8 @@ export class CounterComponent {
   @Input({required: true}) duration = 0;
   @Input ({required: true}) message = '';
   counter = signal (0);
+  counterRef: number | undefined;
+
   
 
 
@@ -45,7 +48,7 @@ export class CounterComponent {
     console.log('_'.repeat(10));
     console.log('duration =>', this.duration);
     console.log('message =>', this.message);
-    window.setInterval(() => {
+    this.counterRef = window.setInterval(() => {
       console.log('run interval')
       this.counter.update(statePrev => statePrev + 1);
     }, 1000)
@@ -61,6 +64,7 @@ export class CounterComponent {
   ngOnDestroy(){
     console.log('ngOnDestroy');
     console.log('_'.repeat(10));
+    window.clearInterval(this.counterRef)
   }
 
   doSomething(){
