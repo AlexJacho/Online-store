@@ -1,11 +1,6 @@
-<h1>
-    <input type="number" [value]="duration()" (change)="changeDuration($event)">
-</h1>
+<div>
+    <h1>About</h1>
+    <p>Esta una tienda de productos y servicios latinoamericanos para Romania</p>
+    <p>Numero de clientes <app-counter [duration]="duration()" [message]="message()" *ngIf="duration() > 0"/></p>
+</div>
 
-<h2>
-    <input type="text" [value]="message()" (change)="changeMessage($event)">
-</h2>
-
-<h3>
-    <app-counter [duration]="duration()" [message]="message()" *ngIf="duration() > 0"/> 
-</h3>
