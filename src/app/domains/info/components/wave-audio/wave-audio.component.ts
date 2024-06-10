@@ -14,7 +14,7 @@ import WaveSurfer from 'wavesurfer.js';
 export class WaveAudioComponent {
 
   @Input ({required: true}) audioUrl!: string;
-  
+  @ViewChild('wave') container!: ElementRef;
 
 
 
@@ -22,7 +22,7 @@ export class WaveAudioComponent {
   ngAfterViewInit(){
     WaveSurfer.create({
      url: this.audioUrl,
-     container:
+     container: this.container.nativeElement
     })
 
 
