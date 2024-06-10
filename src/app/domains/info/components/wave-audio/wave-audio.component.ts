@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { RequiredValidator } from '@angular/forms';
+import { url } from 'inspector';
+
+import WaveSurfer from 'wavesurfer.js';
 
 @Component({
   selector: 'app-wave-audio',
@@ -8,5 +12,20 @@ import { Component } from '@angular/core';
   styleUrl: './wave-audio.component.css'
 })
 export class WaveAudioComponent {
+
+  @Input ({required: true}) audioUrl!: string;
+  
+
+
+
+
+  ngAfterViewInit(){
+    WaveSurfer.create({
+     url: this.audioUrl,
+     container:
+    })
+
+
+  }
 
 }
