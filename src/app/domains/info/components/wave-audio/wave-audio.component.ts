@@ -15,17 +15,21 @@ export class WaveAudioComponent {
 
   @Input ({required: true}) audioUrl!: string;
   @ViewChild('wave') container!: ElementRef;
+  private ws!: WaveSurfer;
+
 
 
 
 
   ngAfterViewInit(){
-    WaveSurfer.create({
+    this.ws = WaveSurfer.create({
      url: this.audioUrl,
      container: this.container.nativeElement
     })
+  }
 
-
+  playPause(){
+    this.ws.playPause()
   }
 
 }
