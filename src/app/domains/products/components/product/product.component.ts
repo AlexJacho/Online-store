@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Product } from '../../../shared/models/product.model';
 
 @Component({
   selector: 'app-product',
@@ -8,16 +9,14 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   styleUrl: './product.component.css'
 })
 export class ProductComponent {
-  @Input({required:true}) img: string = '';
-  @Input({required:true}) price: number = 0;
-  @Input({required:true}) title: string = '';
-  @Input({required:true}) creationAt: string = '';
+  @Input({required:true}) prod!: Product;
+
 
   @Output () addToCart = new EventEmitter();
 
   addCartHandler(){
     console.log('click from child');
-    this.addToCart.emit('its a message from child ' + this.title);
+    this.addToCart.emit('its a message from child ' + this.prod.title);
   }
 
 }
