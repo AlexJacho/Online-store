@@ -13,6 +13,7 @@ import { HeaderComponent } from '../../../shared/components/header/header.compon
 })
 export class ListComponent {
   products = signal <Product[]>([]);
+  cart = signal <Product[]>([]);
 
   constructor(){
     const initProducts: Product[] = [
@@ -72,9 +73,10 @@ export class ListComponent {
 
 
 
-  fromChild(event: string){
-    console.log('click from father');
-    console.log(event);
+  addToCartMenu(product: Product){
+    this.cart.update(previousState =>[...previousState, product]);
+
+
     
   }
 
