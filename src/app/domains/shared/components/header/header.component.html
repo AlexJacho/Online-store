@@ -61,8 +61,14 @@
       </svg>
     </button>
   </div>
-  <div *ngFor="let productSelected of cartSide">
-    <p>{{productSelected.title}}</p>
-    <p>{{productSelected.price}}</p>
+  
+  <div class="pt-4 flex flex-col">
+    <div class="flex justify-between items-center space-y-2" *ngFor="let productSelected of cartSide">
+      <div class=" flex space-x-2 items-center">
+        <img class="w-6 h-6" [src]="productSelected.image" [alt]="productSelected.title">
+        <h3>{{productSelected.title}}</h3>
+      </div>
+      <p>{{productSelected.price}}</p>
+    </div>
   </div>
 </div>
