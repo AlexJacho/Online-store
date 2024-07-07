@@ -17,5 +17,11 @@ export class HeaderComponent {
     this.hideSideMenu.update(previusState => !previusState);
   }
 
+  calculateTotal(){
+    return this.cartSide.reduce((total, productSide) => total + productSide.price, 0);
+    
+  }
+
+
 
 }
