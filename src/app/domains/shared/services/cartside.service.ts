@@ -5,11 +5,14 @@ import { Product } from '../models/product.model';
   providedIn: 'root'
 })
 export class CartsideService {
-  
+
   cart = signal<Product[]>([]);
 
-  
-
-
   constructor() { }
+
+  addToCart(product:Product){
+    this.cart.update(prevState => [...prevState, product]);
+    
+
+  }
 }
