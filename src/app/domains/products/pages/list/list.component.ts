@@ -75,8 +75,7 @@ export class ListComponent {
 
 
   addToCartMenu(product: Product){
-    this.cart.update(previousState =>[...previousState, product]);
-
+    this.cartsideService.addToCart(product);
 
     
   }
