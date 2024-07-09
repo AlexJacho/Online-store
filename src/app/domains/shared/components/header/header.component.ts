@@ -13,23 +13,13 @@ import { CartsideService } from '../../services/cartside.service';
 export class HeaderComponent {
   hideSideMenu = signal(true);
   private cartsideService = inject(CartsideService)
-
-  total = signal(0);
+ 
+  total = this.cartsideService.total;
+  cart = this.cartsideService.cart;
+  
 
   toogleSideMenu(){
     this.hideSideMenu.update(previusState => !previusState);
-  }
-
-  calculateTotal(){
-    return this.cartSide.reduce((total, productSide) => total + productSide.price, 0);
-    
-  }
-
-  ngOnChanges(changes: SimpleChanges){
-    const cartSide = changes['cartSide'];
-    if (cartSide){
-      this.total.set(this.calculateTotal());
-    }
   }
 
 
