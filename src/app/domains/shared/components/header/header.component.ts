@@ -1,6 +1,7 @@
-import { Component, Input, signal, SimpleChanges } from '@angular/core';
+import { Component, inject, Input, signal, SimpleChanges } from '@angular/core';
 import { Product } from '../../models/product.model';
 import { CommonModule } from '@angular/common';
+import { CartsideService } from '../../services/cartside.service';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +12,7 @@ import { CommonModule } from '@angular/common';
 })
 export class HeaderComponent {
   hideSideMenu = signal(true);
-  @Input({required:true}) cartSide: Product[] = [];
+  private cartsideService = inject(CartsideService)
 
   total = signal(0);
 
