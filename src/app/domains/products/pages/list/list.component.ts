@@ -1,8 +1,9 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import {ProductComponent} from './../../components/product/product.component';
 import {Product} from './../../../shared/models/product.model';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../../../shared/components/header/header.component';
+import { CartsideService } from '../../../shared/services/cartside.service';
 
 @Component({
   selector: 'app-list',
@@ -13,7 +14,7 @@ import { HeaderComponent } from '../../../shared/components/header/header.compon
 })
 export class ListComponent {
   products = signal <Product[]>([]);
-  cart = signal <Product[]>([]);
+  private cartsideService = inject(CartsideService);
 
   constructor(){
     const initProducts: Product[] = [
