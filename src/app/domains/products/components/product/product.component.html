@@ -3,7 +3,7 @@
         <img [src]="prod.images[0]" [alt]="prod.title" class="h-full w-full object-cover object-center group-hover:opacity-75">
     </a>
     <div class="flex flex-col space-y-2 p-4">
-        <h3 class="text-sm text-gray-700">{{prod.title | uppercase }} </h3>
+        <h3 class="text-sm text-gray-700">{{prod.title | uppercase | reverse }} </h3>
         <p class="text-lg font-medium text-gray-900">{{prod.price | currency:'lei ':'symbol':'1.0'}}</p>
         <p class="text-lg font-medium text-gray-900">{{prod.creationAt | date:'short'}}</p>
 
